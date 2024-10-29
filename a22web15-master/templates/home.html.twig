@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+
+    <body>
+    <div class="banner-section layout-padding">
+        <div id="main-slider" class="carousel slide" data-ride="carousel">
+            {% if app.user %}
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="container">
+                            <h1 class="banner-title">Welcome <br>{{ app.user.firstname }}!</h1>
+                            <div class="btn-main">
+                                <div class="more-bt"><a href="{{ path('app_logout') }}">Logout</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="container">
+                            <h1 class="banner-title">Find<br>New Trending<br>Books</h1>
+                            <div class="btn-main">
+                                <div class="contact-bt active"><a href="{{ path('books-trending') }}">See What's Hot</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="container">
+                            <h1 class="banner-title">We<br>Make a Home <br>Out Of The Library</h1>
+                            <div class="btn-main">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <h1 class="banner-title">Find <br>Book Lovers<br>Near You</h1>
+                        <div class="btn-main">
+                            <div class="more-bt"><a href="{{ path('app_register') }}">Sign Up</a></div>
+                            <div class="contact-bt active"><a href="{{ path('app_login') }}">Login</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <h1 class="banner-title">Find<br>Your Favourite<br>Books</h1>
+                        <div class="btn-main">
+                            <div class="more-bt"><a href="{{ path('app_register') }}">Sign Up</a></div>
+                            <div class="contact-bt active"><a href="{{ path('app_login') }}">Login</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <h1 class="banner-title">We<br>Make a Home <br>Out Of The Library</h1>
+                        <div class="btn-main">
+                            <div class="more-bt"><a href="{{ path('app_register') }}">Sign Up</a></div>
+                            <div class="contact-bt active"><a href="{{ path('app_login') }}">Login</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <a class="carousel-control-next" href="#main-slider" role="button" data-slide="next">
+                <i class="fa fa-right"><img src="{{ asset('images/right-icon.png') }}" alt="imgRight"></i>
+            </a>
+        </div>
+    </div>
+    <!-- banner section end -->
+    <!-- about section start -->
+    <div class="about-section layout-padding">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="about-main">
+                        <div class="about-title">About BookBinder</div>
+                        <p class="about-text">BookBinder helps connect book enthusiasts and make the library feel like a home. Find book lovers nearby and meet them to talk about your favourite books.</p>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about-img"><img src="{{ asset('images/girl.jpg') }}" alt="imgGirl"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about section end -->
+
+    </body>
+
+
+{% endblock %}

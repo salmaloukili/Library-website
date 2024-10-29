@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+
+    <form action="/BookBinder/feedback" method="post">
+
+        <div class="contact-section layout-padding">
+            <div class="container">
+                <h1 class="contact-title">Give your opinion or ask questions!</h1>
+            </div>
+            <div class="contact-section-2 layout-padding">
+                <div class="container">
+                    <div class="mail-section">
+
+
+                        {{ form_start(feedback_form) }}
+                        {% for message in app.flashes('success') %}
+                            <div class="alert alert-success">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="name">Name : </label>
+                                {{ form_widget(feedback_form.name, {'attr': {'class': 'input-text', 'placeholder': 'Name'}}) }}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email">Email : </label>
+                                {{ form_widget(feedback_form.email, {'attr': {'class': 'input-text', 'placeholder': 'Email'}}) }}
+                            </div>
+                        </div>
+                        <div>
+                            <label for="phone_number">Phone Number : </label>
+                            {{ form_widget(feedback_form.phone_number, {'attr': {'class': 'input-text', 'placeholder': 'Phone Number'}}) }}
+                        </div>
+                        <div>
+                            <label for="message">Message</label>
+                            {{ form_widget(feedback_form.message, {'attr': {'class': 'massage-box', 'placeholder': 'Message'}}) }}
+                        </div>
+                        <div class="send-bt">
+                            {{ form_widget(feedback_form.save, {'attr': {'class': 'send-text', 'value': 'SEND'}}) }}
+                        </div>
+
+                        {{ form_end(feedback_form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+
+{% endblock %}

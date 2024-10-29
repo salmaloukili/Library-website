@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BookBinder</title>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+
+
+    <link rel="stylesheet" href="{{ asset('css/registration.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/trending-books.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/search-books.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/library.css') }}">
+    {% block stylesheets %}{% endblock %}
+
+
+    <script src="{{ asset('js/trending-books.js') }}" defer></script>
+</head>
+
+<body>
+<!-- header section start -->
+<header>
+    <div class="header-section">
+        <div class="">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="logo" href="{{ path('home') }}"><img src="{{ asset('images/Booklogo.png') }}" alt="Image"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('home') }}">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('books-trending') }}">Trending books</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('books-explore') }}">Explore</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('books-search') }}">Search book</a>
+                        </li>
+
+
+                        {% if app.user %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('profile', {'id': app.user.id} ) }}">{{ app.user.username }}'s Profile</a>
+                        </li>
+
+                        {% endif %}
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ app.user ? path('app_logout') : path('app_login') }}">
+                                <img src="{{ app.user ? asset('images/logout.png') : asset('images/login.PNG') }}" alt="LogIcon">
+                                {{ app.user ? 'Logout' : 'Login' }}
+                            </a>
+
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- header section end -->
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<!-- footer section start -->
+<footer>
+    <div class="footer-section layout-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-12">
+                    <div class="map-text"><a href="{{ path('about') }}"><img
+                                    src="{{ asset('images/about.png') }}" alt="aboutImage"
+                                    class="image-main"><span
+                                    class="padding-left-10">About Us</span></a></div>
+                </div>
+                <div class="col-lg-4 col-sm-12">
+                    <div class="map-text"><a href="{{ path('feedback') }}"><img src="{{ asset('images/feedback.webp') }}" alt="imageFeedback"
+                                                                                class="image-main"><span
+                                    class="padding-left-10">Give Feedback</span></a>
+                    </div>
+                </div>
+{#                <div class="col-lg-4 col-sm-12">#}
+{#                    <div class="map-text"><a href="{{ path('library') }}"><img src="{{ asset('images/library.png') }}" alt="LibrariesIcon" class="image-main"><span class="padding-left_10">Libraries</span></a></div>#}
+{#                </div>#}
+
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer section end -->
+
+<!-- copyright section start -->
+<div class="copyright-section">
+    <div class="container">
+        <p class="copyright-text">Copyright &copy 2022 WebTech. KUL&nbsp;All Rights Reserved.&nbsp;&nbsp;
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Privacy Policy</a> | <a
+                    href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Terms of Use </a>
+        </p>
+    </div>
+</div>
+<!-- copyright section end -->
+<!-- Javascript files-->
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+
+</body>
+</html>
+
+
+

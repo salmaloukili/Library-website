@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <script src="{{ asset('js/profile-books.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+
+    <div class="container">
+    {% if user %}
+    <div class="main">
+        <div class="heading">
+        <div class="banner">
+            <div class="circle">
+                <img src="{{ asset('images/profileIcon.PNG') }}" class="profile-pic" alt="profilePicture">
+            </div>
+        </div>
+        </div>
+
+        <div class="profile-box-normal">
+            <div class="profile-data">
+                <p class="name">{{ user.username }}</p>
+                <p class="true-name">{{ user.firstname }} {{ user.lastname }} <i>({{ user.email }})</i></p>
+                </div>
+            {% if user.id==app.user.id%}
+                <a class="edit" href={{ path('edit-profile') }}>Edit Profile</a>
+            {% endif %}
+        </div>
+
+        <p class="bio">{{ user.bio }}</p>
+
+
+        <div class="carousel-container">
+            {% if user.id==app.user.id %}
+                <h2>Liked Books</h2>
+            {% if user.likedBooksVisible %}
+                <h3> (Set to <b>public</b>) </h3>
+            {% else %}
+                <h3>(Set to <b>private</b>)</h3>
+            {% endif %}
+
+            <div class="carousel">
+                {% for book in books %}
+                    <div class="carousel-item" onclick="goToLikedBook({{ book.id }})">
+                        <img src="https://covers.openlibrary.org/b/isbn/{{ book.ISBN }}-M.jpg" alt="bookImage">
+                        <h4>{{ book.bookTitle }}</h4>
+                        <p><i>{{ book.authorName }}</i></p>
+                    </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            {% if user.likedBooksVisible %}
+                <h2>Liked Books</h2>
+            <div class="carousel">
+                {% for book in books %}
+                    <div class="carousel-item" onclick="goToLikedBook({{ book.id }})">
+                        <img src="https://covers.openlibrary.org/b/isbn/{{ book.ISBN }}-M.jpg" alt="bookImage">
+                        <h4>{{ book.bookTitle }}</h4>
+                        <p><i>{{ book.authorName }}</i></p>
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endif %}
+
+        </div>
+
+
+    </div>
+    {% else %}
+        <p>Please log in to view your profile.</p>
+    {% endif %}
+    </div>
+{% endblock %}

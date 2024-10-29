@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <section id="trending">
+        <script src="{{ asset('js/trending-books.js') }}"></script>
+        <script>
+            let placeholder = "{{ asset('images/default_book_cover.jpg') }}";
+            var books = [
+                {% for book in books %}
+                {
+                    "id": "{{ book.id }}",
+                    "ISBN": "{{ book.ISBN }}",
+                    "bookTitle": "{{ book.bookTitle }}",
+                    "authorName": "{{ book.authorName }}",
+                    "publisher": "{{ book.publisher }}",
+                    "numberOfPages": "{{ book.numberOfPages }}",
+                    "likes": "{{ book.likes }}"
+                }{% if not loop.last %},{% endif %}
+                {% endfor %}
+            ];
+
+            var likedBooks = [
+                {% for likedBook in likedBooks %}
+                {
+                    "id": "{{ likedBook.id }}"
+                }{% if not loop.last %},{% endif %}
+                {% endfor %}
+            ];
+        </script>
+
+        <h1>Trending</h1>
+        <h2>Like what you like!</h2>
+        <div class="card">
+            <div class="card-content1">
+                <h3>{{ books[0].bookTitle }}</h3>
+            </div>
+            <div class="image-wrapper">
+                <div class="button-wrapper left">
+                    <button class="btn-skip" onclick="swipe('left')">
+                        <span class="cross-symbol">&#10006;</span> SKIP
+                    </button>
+                </div>
+                <img class="card-image" src="https://covers.openlibrary.org/b/isbn/{{ books[0].ISBN }}-M.jpg" onclick="goToBook()" alt="bookCover">
+                <div class="button-wrapper right">
+                    <button class="btn-like" onclick="swipe('right')">
+                        <span class="heart-symbol">&#10084;</span>
+                        <span class="btn-text">LIKE</span>
+                    </button>
+                </div>
+            </div>
+            <div class="card-content2">
+                <p>Author: {{ books[0].authorName }}</p>
+                <p>Publisher: {{ books[0].publisher }}</p>
+                <p>Number of pages: {{ books[0].numberOfPages }} pages</p>
+                <p>Likes: {{ books[0].likes }} likes</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

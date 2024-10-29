@@ -1,0 +1,240 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    /*background: #ffffff;*/
+    z-index: auto;
+}
+
+.main{
+    background: #ffffff;
+    z-index: auto;
+}
+
+.heading {
+    position: relative;
+}
+
+.banner {
+    position: relative;
+    height: 150px;
+    background-color: #ffab7f;
+    z-index: auto;
+}
+
+.circle {
+    position: absolute;
+    bottom: -60px;
+    left: 10%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid #ff7b3a;
+    overflow: hidden;
+}
+
+.circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.name{
+    font-weight: bold;
+    font-style: normal;
+    font-size: 28px;
+    padding: 0;
+    color:#021239;
+    text-align: left;
+    margin-top: 80px;
+    margin-bottom: 2px;
+    margin-left: 0;
+}
+
+.true-name{
+    font-style: normal;
+    font-size: 12px;
+    padding: 0;
+    color: rgba(2, 18, 57, 0.80);
+    text-align: left;
+    margin: 0;
+}
+
+.profile-box-normal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.profile-data{
+    width:70%;
+    margin-left: 5%;
+}
+
+.edit{
+    font-weight: bold;
+    font-style: normal;
+    font-size: 14px;
+    background-color:darkorange;
+    color: #021239;
+    margin-right: 5%;
+    margin-top: 15px;
+    padding: 5px 10px;
+    text-decoration: none;
+    align-self: flex-start;
+    border-radius: 20px;
+    max-height: fit-content;
+}
+
+.edit:hover{
+    background-color: rgba(255, 140, 0, 0.75);
+    color: rgba(2, 18, 57, 0.75);
+}
+
+.bio{
+    font-size: 14px;
+    padding: 0;
+    color:#021239;
+    text-align: left;
+    margin-top: 0;
+    margin-left: 5%;
+}
+
+.bio-edit{
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+}
+
+.carousel-container {
+    overflow: hidden;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: flex-start;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background: #efefef;
+    padding: 10px;
+    margin-block: 30px;
+    margin-left: 5%;
+}
+
+.carousel-container h2{
+    font: bold 16px Arial;
+    color: #021239;
+    margin:0;
+    padding: 0;
+    align-self: flex-start;
+    justify-self: flex-start;
+}
+
+.carousel-container h3{
+    font: 12px Arial;
+    color: #838383;
+    padding: 0;
+    align-self: flex-start;
+    justify-self: flex-start;
+    z-index: 1;
+}
+
+.carousel {
+    overflow-x: scroll;
+    white-space: nowrap;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0;
+}
+
+.carousel-item{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    margin: 20px;
+    gap: 5px;
+}
+
+.carousel-item:hover {
+    cursor: pointer;
+}
+
+.carousel-item img{
+    width: 60px;
+    height: 90px;
+}
+
+.carousel-item p{
+    margin: 0;
+}
+
+.carousel-item h4{
+    margin: 0;
+}
+
+.likedBooks-edit label{
+    margin-right: 10px;
+    margin-left: 2px;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}
+
+.submit{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.save{
+    font-weight: bold;
+    font-style: normal;
+    font-size: 14px;
+    background-color:darkorange;
+    color: #021239;
+    margin-right: 5%;
+    margin-top: 15px;
+    padding: 5px 10px;
+    text-decoration: none;
+    align-self: flex-start;
+    border-radius: 20px;
+    max-height: fit-content;
+}
+
+.save:hover{
+    background-color: rgba(255, 140, 0, 0.75);
+    color: rgba(2, 18, 57, 0.75);
+}
+
+.cancel{
+    font-weight: bold;
+    font-style: normal;
+    font-size: 14px;
+    /*background-color:darkorange;*/
+    color: #021239;
+    border: 2px solid #021239;
+    margin-right: 5%;
+    margin-top: 15px;
+    padding: 5px 10px;
+    text-decoration: none;
+    align-self: flex-start;
+    border-radius: 20px;
+    max-height: fit-content;
+}
+
+.save:hover{
+    color: rgba(2, 18, 57, 0.75);
+    border: 2px rgba(2, 18, 57, 0.75);
+}

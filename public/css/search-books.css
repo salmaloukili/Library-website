@@ -1,0 +1,190 @@
+#search-form h1 {
+    text-align: center;
+    font-size: 48px;
+    margin-top: 50px;
+    margin-bottom: -5px;
+
+    width: 100%;
+    float: left;
+    color: #021239;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+#search-form h2 {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#card-container .card {
+    background-color: #021239;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 600px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-bottom: 50px;
+    /*margin-top: 100px;*/
+}
+
+#card-container .card-image {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 5px;
+    border: 2px solid #e07c06;
+    margin-bottom: 20px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+#card-container .card-image:hover {
+    transform: scale(1.1);
+    border: 5px solid #e07c06;
+    cursor: pointer;
+}
+
+#card-container .bookDetails {
+    color: #F5F5F5;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#card-container .title {
+    color: #e07c06;
+    font-size: 16px;
+}
+
+#card-container .btn-like {
+    background-color: #e07c06;
+    color: white;
+    border: 2px solid #e07c06;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+    align-items: center;
+}
+
+#card-container .btn-like .heart-symbol {
+    font-size: 18px;
+    color: white;
+    margin-right: 5px;
+    transition: color 0.3s ease;
+}
+
+#card-container .btn-like:hover {
+    background-color: #021239;
+}
+
+#card-container .btn-like:hover .heart-symbol {
+    color: #e07c06;
+}
+
+#search-form input[type="submit"] {
+    background-color: #e07c06;
+    color: white;
+    cursor: pointer;
+}
+
+#search-form {
+    width: 400px;
+    margin: 0 auto;
+}
+
+#search-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#search-form select,
+#search-form input[type="text"] {
+    height: 50px;
+    width: 99%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 18px;
+}
+
+#search-form button {
+    width: 50%;
+    background-color: #e07c06;
+    color: #fff;
+    padding: 10px 50px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+#search-form button:hover {
+    background-color: #021239;
+}
+
+
+
+.card-content {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card h1 {
+    font-size: 32px;
+}
+
+.card-content h3 {
+    margin-top: 0;
+}
+
+.card-content p {
+    margin: 5px 0;
+}
+
+.card-actions {
+    margin-top: 10px;
+}
+
+#card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 600px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#explore-header {
+    text-align: center;
+    font-size: 48px;
+    margin-top: 50px;
+    margin-bottom: -5px;
+    width: 100%;
+    color: #021239;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+
+
+

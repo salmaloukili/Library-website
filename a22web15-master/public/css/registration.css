@@ -1,0 +1,101 @@
+#registration {
+    width: 400px;
+    margin: 0 auto;
+}
+
+#registration h1 {
+    text-align: center;
+    font-size: 48px;
+    margin-top: 50px;
+    margin-bottom: -5px;
+
+    width: 100%;
+    float: left;
+    color: #021239;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+#registration h2 {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#registration .form-group label {
+    display: block;
+    text-align: left;
+}
+
+.birthdate-field select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.birthdate-field label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.birthdate-field {
+    margin-bottom: 16px;
+}
+
+#registration input[type="email"],
+#registration input[type="text"],
+#registration input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#registration .form-check {
+    display: block;
+}
+
+#registration .form-check label {
+    margin-right: 10px;
+}
+
+#registration .alert {
+    background-color: #f2dede;
+    color: #a94442;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ebccd1;
+}
+
+#registration button[type="submit"] {
+    background-color: #e07c06;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#registration button[type="submit"]:hover {
+    background-color: #021239;
+}
+
+#registration .div-1 {
+    margin-bottom: 50px;
+}
+
+#registration a {
+    color: blue;
+}
+
+#registration a:hover {
+    color: #dc3545;
+    text-decoration: underline;
+}

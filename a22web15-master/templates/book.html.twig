@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/book.css') }}">
+{% endblock %}
+{% block content %}
+    <script src="{{ asset('js/book-details.js') }}"></script>
+
+    {% for b in book %}
+        <h1>
+            {{ b.bookTitle }}
+        </h1>
+        <div class="card">
+            <div class="card-content">
+                <div class="card-image">
+                    <img src="https://covers.openlibrary.org/b/isbn/{{ b.ISBN }}-M.jpg" alt="bookCover"/>
+                </div>
+                <div class="card-content">
+                    <p>Author: {{ b.authorName }}</p>
+                    <p>Publisher: {{ b.publisher }}</p>
+                    <p>Number of pages: {{ b.numberOfPages }} pages</p>
+                    <p>Genre: {{ b.genre }}</p>
+                    <p>Publication Date: {{ b.publicationDate }}</p>
+                    <p>Language: {{ b.language }}</p>
+                    <p>Likes: <span id="likesCount">{{ b.likes }}</span> likes</p>
+                    <button id="likeButton" class="btn-like {% if b in likedBooks %}disabled-button{% endif %}"
+                            onclick="like({{ b.id }})" onclick="like({{ b.id }})" {% if b in likedBooks %}disabled{% endif %}>
+                        {% if b in likedBooks %}LIKED{% else %}LIKE{% endif %}
+                    </button>
+                </div>
+            </div>
+            <div class="comment-section">
+                <h1>Comment Section</h1>
+                {% if comments | length > 0 and comments %}
+                    {% for comment in comments %}
+                        <div class="comment-item">
+                            <a href="{{ path('profile', {'id': comment.getUserId().id} ) }}"> {{ comment.getUserId().getUsername() }}</a>
+{#                            <h2>{{ comment.getUserId().getUsername() }}</h2>#}
+                            <p>{{ comment.text }}</p>
+
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="comment-item">
+                        <p>No comments yet!</p>
+                    </div>
+                {% endif %}
+            </div>
+            <section class="comment-form">
+                <p>📚 Let your opinions light up the pages! 📚</p>
+
+                {{ form_start(bookForm) }}
+                <div>
+                    {{ form_row(bookForm.text) }}
+                </div>
+
+                <div>
+                    <button type="submit" class="btn">Post</button>
+                </div>
+                {{ form_end(bookForm) }}
+            </section>
+        </div>
+
+    {% endfor %}
+
+
+{% endblock %}

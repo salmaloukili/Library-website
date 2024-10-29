@@ -1,0 +1,39 @@
+
+
+
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1 id="explore-header"> Explore Books</h1>
+
+    <section id="card-container">
+        {% if books | length > 0 and books %}
+            {% for book in books %}
+                {% if book.ISBN %}
+                    <div class="card" onclick="location.href='{{ path('book', {'id': book.id} ) }}'">
+                        <div class="card-content">
+
+                            <div class="card-image">
+                                <img src="https://covers.openlibrary.org/b/isbn/{{ book.ISBN }}-M.jpg" alt="Cover"/>
+                            </div>
+
+                            <ul class="bookDetails">
+                                <li class="title">{{ book.bookTitle }}</li>
+                                <li>Author: {{ book.authorName }}</li>
+                                <li>Publisher: {{ book.publisher }}</li>
+                                <li>Genre: {{ book.genre }}</li>
+                                <li>Publication Date: {{ book.publicationDate }}</li>
+                                <li>Language: {{ book.language }}</li>
+                                <li>Number of pages: {{ book.numberOfPages }} pages</li>
+                                <li>Likes: {{ book.likes }} likes</li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p>No books found.</p>
+        {% endif %}
+    </section>
+{% endblock %}
+

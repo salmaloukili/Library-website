@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <div>
+        <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+    </div>
+
+    <div class="container">
+    <div class="heading">
+        <div class="banner">
+            <div class="circle">
+                <img src="{{ asset('images/profileIcon.png') }}" class="profile_pic" alt="profile_picture">
+            </div>
+        </div>
+    </div>
+
+    {{ form_start(profile_form) }}
+    <div class="profile-box-normal">
+        <div class="profile-data">
+            <p class="name">{{ form_widget(profile_form.username) }}</p>
+        </div>
+    </div>
+    <p class="bio">
+        {{ form_label(profile_form.bio) }}
+        {{ form_widget(profile_form.bio) }}
+    </p>
+
+        <h2>Your Liked Books are:</h2>
+        {{ form_widget(profile_form.likedBooksVisible) }}
+        <br/>
+
+        {% if form_errors(profile_form.bio) %}
+            <div class="error-message">
+                {{ form_errors(profile_form.bio) }}
+            </div>
+        {% endif %}
+
+        <div class="submit">
+            <a class="cancel" href={{ path('profile', {'id': app.user.id} ) }}>Cancel</a>
+            <div>
+                {{ form_widget(profile_form.save) }}
+            </div>
+        </div>
+    {{ form_end(profile_form) }}
+    </div>
+{% endblock %}

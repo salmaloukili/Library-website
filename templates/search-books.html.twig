@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <script src="{{ asset('js/trending-books.js') }}"></script>
+
+    <script>
+        var books = [
+            {% for book in books %}
+            {
+                "ISBN": "{{ book.ISBN }}",
+                "bookTitle": "{{ book.bookTitle }}",
+                "authorName": "{{ book.authorName }}",
+                "publisher": "{{ book.publisher }}",
+                "numberOfPages": "{{ book.numberOfPages }}",
+                "likes": "{{ book.likes }}"
+            }{% if not loop.last %},{% endif %}
+            {% endfor %}
+        ];
+    </script>
+
+    <section id="search-form">
+        <h1>Search books</h1>
+        <h2>Search for your favorite books with different searchtypes!</h2>
+        {{ form_start(search_book_form) }}
+        <div id="search-bar">
+            <div>
+                {{ form_widget(search_book_form.type) }}
+            </div>
+
+            <div>
+                {{ form_widget(search_book_form.value)  }}
+            </div>
+        </div>
+
+        <div>
+            {{ form_widget(search_book_form.search) }}
+        </div>
+        {{ form_end(search_book_form) }}
+    </section>
+    <section id="card-container" >
+        {% if books | length > 0 and books %}
+            {% for book in books %}
+                <div class="card" onclick="location.href='{{ path('book', {'id': book.id} ) }}'">
+                    <div class="card-content">
+
+                        <div class="card-image">
+                            <img src="https://covers.openlibrary.org/b/isbn/{{ book.ISBN }}-M.jpg" alt="Cover"/>
+                        </div>
+
+                        <ul class="bookDetails">
+                            <li class="title">{{ book.bookTitle }}</li>
+                            <li>Author: {{ book.authorName }}</li>
+{#                            <li>Publisher: {{ book.publisher }}</li>#}
+                            <li>Genre: {{ book.genre }}</li>
+                            <li>Number of pages: {{ book.numberOfPages }} pages</li>
+                            <li>Likes: {{ book.likes }} likes</li>
+                        </ul>
+                    </div>
+                    <div class="button-wrapper right">
+                        <button class="btn-like" onclick="swipe('right')">
+                            <span class="heart-symbol">&#10084;</span> LIKE
+                        </button>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            NO BOOKS FOUND
+        {% endif %}
+    </section>
+
+{% endblock %}
